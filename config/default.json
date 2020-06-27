@@ -1,0 +1,3 @@
+{
+    "mongoURI":"mongodb+srv://123:<password>@cluster0-hibpw.mongodb.net/amazon?retryWrites=true&w=majority"
+}

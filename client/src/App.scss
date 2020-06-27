@@ -1,0 +1,116 @@
+@import "./styles/products";
+
+html{
+    font-size: 62.5%; /* 16px * 62.5 = 10px = 1rem */
+    box-sizing: border-box;
+  }
+  body{
+    font: 1.6rem Helvetica;
+    height: 100vh;
+    margin: 0;
+  }
+ 
+  a{
+    text-decoration: none;
+    &:hover{
+        color:#ff8000;
+    }
+  }
+  .grid-container{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "main"
+    "contact"
+    "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem 1fr 8rem 5rem;
+    height: 100%;
+    
+  }
+
+  .header{
+    grid-area: header;
+    background-color: #203040;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+
+    &-links a{
+    color:#ffffff;
+    text-decoration: none;
+    padding: 1rem;
+    
+    }
+  }
+
+  
+  
+
+.brand {
+   a{
+    color:#fff;
+    font-size: 3rem;
+    font-weight: bold;
+    text-decoration: none;
+   }
+
+   button{
+    font-size: 3rem;
+    padding: .5rem;
+    background: none;
+    border: none;
+    color:#ffffff;
+    cursor: pointer;
+   }
+}
+
+
+.main{
+    grid-area:main;    
+}
+
+
+.contact{
+    grid-area:contact;
+    display:flex;
+    background:green;
+    justify-content: center;
+    align-items: center;
+}
+.footer{
+    grid-area:footer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#203040;
+}
+
+.sidebar{
+    position: fixed;
+    transition:all .5s;
+    transform: translateX(-30rem);
+    width: 30rem;
+    background-color: #f0f0f0;
+    height: 100%;
+    &-close-button{
+    border-radius: 50%;
+    border: .1rem #000000 solid;
+    width: 3rem;
+    height: 3rem;
+    padding: .5rem;
+    font-size: 2rem;
+    padding-top: 0;
+    cursor: pointer;
+    position: absolute;
+    right: .5rem;
+    top: 1.5rem
+    }
+  }
+  .sidebar.open{
+    transform: translateX(0);
+  }
+  
+  
