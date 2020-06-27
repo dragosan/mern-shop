@@ -1,53 +1,207 @@
-body, html {
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
-  color: red;
+.products {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-img {
-  width: 100%;
+.products li {
+  list-style-type: none;
+  padding: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 34rem;
+          flex: 0 1 34rem;
+  margin: 1rem;
+  height: 50rem;
+  border-bottom: .1rem #c0c0c0 solid;
+}
+
+.products li img {
+  height: 100%;
+}
+
+.product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+}
+
+.product-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.product-brand {
+  font-size: 1.2rem;
+  color: #808080;
+}
+
+.product-price {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.product-image {
+  max-width: 34rem;
+  max-height: 34rem;
+}
+
+.product-rating {
+  margin-bottom: 1rem;
+}
+
+html {
+  font-size: 62.5%;
+  /* 16px * 62.5 = 10px = 1rem */
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font: 1.6rem Helvetica;
+  height: 100vh;
+  margin: 0;
 }
 
 a {
   text-decoration: none;
 }
 
+a:hover {
+  color: #ff8000;
+}
+
 .grid-container {
-  height: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 100%;
-      grid-template-columns: 100%;
-  -ms-grid-rows: 8% auto 10%;
-      grid-template-rows: 8% auto 10%;
-      grid-template-areas: ' header main footer ';
+      grid-template-areas: "header" "main" "contact" "footer";
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: 5rem 1fr 8rem 5rem;
+      grid-template-rows: 5rem 1fr 8rem 5rem;
+  height: 100%;
 }
 
 .header {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: header;
+  background-color: #203040;
+  color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem;
+}
+
+.header-links a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 1rem;
+}
+
+.brand a {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.brand button {
+  font-size: 3rem;
+  padding: .5rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .main {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
   grid-area: main;
 }
 
+.contact {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: contact;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: green;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .footer {
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
   grid-area: footer;
-  color: green;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #203040;
+}
+
+.sidebar {
+  position: fixed;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  -webkit-transform: translateX(-30rem);
+          transform: translateX(-30rem);
+  width: 30rem;
+  background-color: #f0f0f0;
+  height: 100%;
+}
+
+.sidebar-close-button {
+  border-radius: 50%;
+  border: .1rem #000000 solid;
+  width: 3rem;
+  height: 3rem;
+  padding: .5rem;
+  font-size: 2rem;
+  padding-top: 0;
+  cursor: pointer;
+  position: absolute;
+  right: .5rem;
+  top: 1.5rem;
+}
+
+.sidebar.open {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 /*# sourceMappingURL=App.css.map */

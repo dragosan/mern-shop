@@ -15,7 +15,7 @@ const Header = () => {
         <button onClick={openMenu}>
           &#9776;
         </button>
-        <NavLink to="/">Amazona</NavLink>
+        <NavLink to="/">amazona</NavLink>
       </div>
       <div className="header-links">
         <a href="cart.html">Cart</a>
