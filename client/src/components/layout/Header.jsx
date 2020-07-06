@@ -18,7 +18,7 @@ const Header = () => {
         <NavLink to="/">amazona</NavLink>
       </div>
       <div className="header-links">
-        <a href="cart.html">Cart</a>
+        <NavLink to="/cart">Cart</NavLink>
         <a href="signin.html">Sign In</a>
       </div>
     </header>

@@ -1,14 +1,44 @@
-import React,{Fragment} from 'react'
+import React,{useContext,useEffect,useState} from 'react';
+import axios from 'axios';
 
-import data from '../../context/data';
 import Product from './Product';
+import {ProductContext} from '../../context/ProductProvider';
+import {GET_PRODUCTS,GET_PRODUCTS_FAIL} from '../../context/types';
+import Spinner from '../layout/Spinner';
 
 const ProductsList = () => {
-  const {products} = data;
-  console.log(products);
+ const {products,loading,errors,dispatch} = useContext(ProductContext);
+  
+  
+  useEffect(()=>{
+    const getProducts = async () =>{
+      try {
+        const res = await axios.get('/api/products');
+        dispatch({
+          type:GET_PRODUCTS,
+          payload:res.data
+        })
+      } catch (err) {
+        dispatch({
+          type:GET_PRODUCTS_FAIL,
+          payload:err.message
+        })
+      }
+     
+      
+    }
+    getProducts();
+    
+  },[])
+  
+  
+  
     return (
       <ul className="products">
-        {products.map(product => <Product key={product._id} product={product} /> )}
+        {errors.length > 0 ? errors.map(error=> <h2>{error}</h2>) :
+        loading ? <Spinner /> :
+         products !==undefined && products.map(product => <Product key={product._id} product={product} /> )}
+        
         
       </ul>
       

@@ -2,11 +2,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const Product = ({product}) => {
-    const {_id,name,image,price,rating,brand,numReviews} = product;
+    const {name,image,price,rating,brand,numReviews} = product;
     return (
         <li>
       <div className="product">
-          <Link to={`/products/${product._id}`}>
+          <Link to={`/${product._id}`}>
         <img className="product-image" src={image} alt={name} />
         </Link>
         <div className="product-name">
