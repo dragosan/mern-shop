@@ -1,5 +1,5 @@
 import React,{useContext,useState} from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 import {ProductContext} from '../../context/ProductProvider';
 import {REMOVE_FROM_CART} from '../../context/types';
@@ -40,7 +40,7 @@ const Cart = (props) => {
                 </div>
                 <div className="cart-name">
                   <div>
-                    <Link to={"/product/" + item.product}>
+                    <Link to={`/products/${item._id}`}>
                       {item.name}
                     </Link>
 

@@ -8,7 +8,7 @@ import {GET_PRODUCT,GET_PRODUCT_FAIL,ADD_TO_CART} from '../../context/types'
 
 const ProductDetails = (props) => {
    const [qty,setQty] = useState(1);
-    const {product,dispatch} = useContext(ProductContext);
+    const {product,dispatch,cart} = useContext(ProductContext);
     const id = props.match.params.id;
     
     useEffect(()=>{
@@ -34,6 +34,7 @@ const ProductDetails = (props) => {
         type: ADD_TO_CART,
         payload:{...item,qty}
       })
+      
     }
     
     

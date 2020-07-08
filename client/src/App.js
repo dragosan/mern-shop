@@ -8,6 +8,7 @@ import Contact from './components/layout/Contact';
 import Cart from './components/cart/Cart';
 import ProductDetails from './components/products/ProductDetails';
 import ProductProvider from './context/ProductProvider';
+import Register from './components/auth/Register';
 
 function App() {
  
@@ -23,6 +24,7 @@ function App() {
         <div className="content">
           <Switch>          
            <Route exact path="/" component={ProductsList} />
+           <Route exact path="/register"  component={Register} />
            <Route exact path="/cart" component={Cart} />
            <Route exact path="/:id" component={ProductDetails} />
            

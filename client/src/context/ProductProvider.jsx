@@ -1,11 +1,10 @@
-import React,{createContext,useReducer,useEffect} from 'react';
-import axios from 'axios';
+import React,{createContext,useReducer} from 'react';
 
-
-import data from './data';
-import {GET_PRODUCTS, GET_PRODUCT,ADD_TO_CART,REMOVE_FROM_CART, GET_PRODUCTS_FAIL, GET_PRODUCT_FAIL} from './types'
+import {GET_PRODUCTS, GET_PRODUCT,ADD_TO_CART,REMOVE_FROM_CART,
+     GET_PRODUCTS_FAIL, GET_PRODUCT_FAIL} from './types'
 
 export const ProductContext = createContext();
+
 const ProductProvider = (props) => {
     let products = null;
     const initState = {
@@ -13,10 +12,9 @@ const ProductProvider = (props) => {
         loading:true,
         product:null,
         errors:[],
-        cart:[]
+        cart: localStorage.getItem('cart') ? localStorage.getItem('cart') : []
     }
-   
-    
+      
    
 
     const appReducer = (state,action) =>{
@@ -30,6 +28,7 @@ const ProductProvider = (props) => {
             case GET_PRODUCT:
                 return {...state,product:payload}
             case ADD_TO_CART:
+                localStorage.setItem('cart',state.cart)
                 return {...state,cart:[...state.cart,payload]}
             case REMOVE_FROM_CART:
                 return {...state,cart:[...state.cart.filter(item=>item._id!==payload)]}
